@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="p1"></p>
+    <p id="p2"></p>
+    <p id="p3"></p>
+    <p id="p4"></p>
+    <p id="p5"></p>
+    <p id="p6"></p>
+    <p id="p7"></p>
+    <p id="p8"></p>
+    <p id="p9"></p>
+    <p id="p10"></p>
+    <script>
+      let studentFirstName = 'Hamed';
+      let studentLastName = 'Kaveh';
+      let studentNationalCode = '121215456';
+      let studentPhone = '091254545';
+      let studentAddress= 'kjskadfa k ksdj df akdjf akdfg aafagf';
+
+      document.getElementById('p1').innerHTML = studentFirstName + ' ' + studentLastName;
+      
+      let teacherFirstName = 'Hamid';
+      let teacherLastName = 'Matin';
+      let teacherNationalCode = '121215456';
+      let teacherPhone = '091254545';
+      let teacherAddress= 'kjskadfa k ksdj df akdjf akdfg aafagf';
+      document.getElementById('p2').innerHTML = teacherFirstName + ' ' + teacherLastName;
+
+      let showInfo = function(id, firstName, lastName, nationalCode, phone, address){
+        document.getElementById(id).innerHTML = firstName + ' ' + lastName + '<br>' +
+                                                '<b>National Code :</b>' + nationalCode + '<br>' +
+                                                '<b>Phone :</b>' + phone + '<br>' + 
+                                                '<b>Address :</b>' + address; 
+
+      }
+
+      showInfo('p3', studentFirstName, studentLastName, studentNationalCode, studentPhone, studentAddress)
+      showInfo('p4', teacherFirstName, teacherLastName, teacherNationalCode, teacherPhone, teacherAddress)
+
+      var firstName = 'global'
+
+      // console.log(this)
+
+      let student1 = {
+        firstName : 'Hamed',
+        lastName: 'Kaveh',
+        nationalCode: '121215456',
+        phone: '091254545',
+        address: 'kjskadfa k ksdj df akdjf akdfg aafagf',
+        fullName: function(){
+          let lastName = 'local name'
+          // return firstName + ' ' + lastName
+          // return student1.firstName + ' ' + student1.lastName
+          return this.firstName + ' ' + this.lastName
+        }
+      }
+      
+      let student2 = {
+        firstName : 'Arman',
+        lastName: 'Khadem',
+        nationalCode: '4565454',
+        phone: '091546545',
+        address: 'mnbdbs fks gskd gfkjsd gfkdsja fsda',
+        fullName: function(){
+          return this.firstName + ' ' + this.lastName
+        }
+      }
+      
+      document.getElementById('p5').innerHTML = student1.firstName + ' ' + student1.lastName;
+      document.getElementById('p6').innerHTML = student2.firstName + ' ' + student2.lastName;
+
+      
+      let showStudentInfo = function(id, student){
+        document.getElementById(id).innerHTML = student.firstName + ' ' + student.lastName + '<br>' +
+                                                '<b>National Code :</b>' + student.nationalCode + '<br>' +
+                                                '<b>Phone :</b>' + student.phone + '<br>' + 
+                                                '<b>Address :</b>' + student.address; 
+
+      }
+      showStudentInfo('p7', student1)
+      showStudentInfo('p8', student2)
+
+      document.getElementById('p9').innerHTML = student1.fullName();
+      document.getElementById('p10').innerHTML = student2.fullName();
+
+    </script>
+  </body>
+</html>
