@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      .password {
+        width: 150px;
+        position: relative;
+        height: 24px;
+        /* padding: 18px; */
+        /* border: 1px solid; */
+      }
+      .password img {
+        display: block;
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        right: 5px;
+        top: 0;
+        cursor: pointer;
+      }
+      .password input {
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding-right: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="password">
+      <input type="password" placeholder="Enter Password" />
+      <img src="images/eye.ico" alt="eye" id="show-password" />
+    </div>
+
+    <script>
+      let showPassword = document.getElementById('show-password');
+
+      showPassword.onmousedown = function (evt) {
+        // when left mouse is down
+        if (evt.button === 0) {
+          this.previousElementSibling.type = 'text';
+        }
+      };
+
+      // showPassword.onmouseup = function () {
+      //   this.previousElementSibling.type = 'password';
+      // };
+      // showPassword.onmouseout = function () {
+      //   this.previousElementSibling.type = 'password';
+      // };
+
+      let mouseUpHandler = function(){
+        this.previousElementSibling.type = 'password';
+      }
+
+      showPassword.onmouseup = mouseUpHandler
+      showPassword.onmouseout = mouseUpHandler
+    </script>
+  </body>
+</html>

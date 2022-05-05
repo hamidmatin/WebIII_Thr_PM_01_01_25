@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      .small-image {
+        width: 308px;
+        height: 173px;
+      }
+      .large-image {
+        border: 1px solid red;
+        width: 500px;
+        height: 300px;
+        overflow: hidden;
+        position: relative;
+      }
+      .large-image > img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: all .2s;
+      }
+      .hide {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="small-image">
+      <img src="images/54-1024x575_sm.png" alt="" />
+    </div>
+    <div class="large-image hide">
+      <img src="images/54-1024x575.webp" alt="" />
+    </div>
+
+    <script>
+      let smallElement = document.querySelector('.small-image')
+      let largeElement = document.querySelector('.large-image')
+
+      smallElement.onmouseenter = function() {
+        largeElement.classList.remove('hide')
+      }
+
+      smallElement.onmouseleave = function() {
+        largeElement.classList.add('hide')
+      }
+
+      smallElement.onmousemove = function(e) {
+        console.log(e.clientX)
+        largeElement.children[0].style.left = -e.clientX * 3 + 'px'
+        largeElement.children[0].style.top = -e.clientY * 3 + 'px'
+      }
+    </script>
+  </body>
+</html>
