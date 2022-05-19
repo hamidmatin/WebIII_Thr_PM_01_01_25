@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p></p>
+    <p></p>
+    <h4>pos = txt.indexOf("SearchString", startPosition = 0)</h4>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <h4>pos = txt.lastIndexOf("SearchString", startPosition = txt.length)</h4>
+    <p></p>
+    <p></p>
+    <h4>pos = txt.search("SearchString")</h4>
+    <h5>The two methods are NOT equal. These are the differences:</h5>
+    <ul>
+      <li>The <b>search()</b> method cannot take a second start position argument.</li>
+      <li>The <b>indexOf()</b> method cannot take powerful search values (regular expressions).</li>
+    </ul>
+
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <h4>str = slice(startIndex = 0, endIndex = length)</h4>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <h4>str = substring(start = 0, end = length) =&gt; cannot accept negative indexes</h4>
+    <p></p>
+    <p></p>
+    <p></p>
+    <h4>str = substr(start, count)</h4>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <h4>str = toUpperCase() &amp; str = toLowerCase()</h4>
+    <p></p>
+    <p></p>
+    <h4>trim()</h4>
+    <p style="white-space: pre; background-color: hotpink; width: fit-content;"></p>
+    <br />
+    <p style="white-space: pre; background-color: hotpink; width: fit-content;"></p>
+    <br />
+    <p style="white-space: pre; background-color: hotpink; width: fit-content;"></p>
+    <br />
+    <p style="white-space: pre; background-color: hotpink; width: fit-content;"></p>
+    <br />
+    <h4>str.padStart(targetLength [, padString]) AND str.padEnd(targetLength [, padString])</h4>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <h4>char = charAt() &amp; num = charCodeAt()</h4>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <script>
+      const paragraphs = document.getElementsByTagName('p');
+      let i = 0;
+      let txt = `But with JavaScript, 
+                   methods and properties are also available to primitive values, 
+                   because JavaScript treats primitive values as objects when executing 
+                   methods and properties.`;
+
+      paragraphs[i++].innerHTML = 'txt = ' + txt;
+      paragraphs[i++].innerHTML = 'txt.length = ' + txt.length;
+
+      // indexOf
+      paragraphs[i++].innerHTML = 'txt.indexOf("with") = ' + txt.indexOf('with');
+      paragraphs[i++].innerHTML = 'txt.indexOf("JavaScript") = ' + txt.indexOf('JavaScript');
+      paragraphs[i++].innerHTML = 'txt.indexOf("JavaScript", 10) = ' + txt.indexOf('JavaScript', 10);
+      paragraphs[i++].innerHTML = 'txt.indexOf("JavaScript", 133) = ' + txt.indexOf('JavaScript', 133) + ' => Not found';
+      paragraphs[i++].innerHTML = 'txt.indexOf("javaScript") = ' + txt.indexOf('javaScript');
+
+      // lastIndexOf
+      paragraphs[i++].innerHTML = 'txt.lastIndexOf("and") = ' + txt.lastIndexOf('and');
+      paragraphs[i++].innerHTML = 'txt.lastIndexOf("and", 220) = ' + txt.lastIndexOf('and', 220);
+
+      /***
+       * const reg = /pattern/modifier(s);
+       *  modifires:
+       *      i : insensitive 
+       *      g : global match 
+       *      m : multiline match 
+       * 
+       * or
+       * const reg = regExp('pattern')
+       * 
+       * 
+       * reg.test(string) => Tests for a match in a string. Returns true or false
+       * reg.exec(string) => Tests for a match in a string. Returns the first match 
+       * 
+       * https://www.w3schools.com/jsref/jsref_obj_regexp.asp
+       */
+      // search
+      
+      paragraphs[i++].innerHTML = 'txt.search("javaScript") = ' + txt.search('javaScript');
+      paragraphs[i++].innerHTML = 'txt.search(/javascript/i) = ' + txt.search(/javascript/i);
+      paragraphs[i++].innerHTML = 'txt.match(/javascript/ig) = ' + txt.match(/javascript/ig);
+      paragraphs[i++].innerHTML = 'txt.replace(/javascript/ig, "JS") = ' + txt.replace(/javascript/gi, 'JS');
+
+      paragraphs[i++].innerHTML = 'txt.slice(9, 92) = ' + txt.slice(9, 92);
+      paragraphs[i++].innerHTML = 'txt.slice(92) = ' + txt.slice(92);
+      paragraphs[i++].innerHTML = 'txt.slice(-24, -12) = ' + txt.slice(-24, -12);
+      paragraphs[i++].innerHTML = 'txt.slice(-24) = ' + txt.slice(-24);
+
+      paragraphs[i++].innerHTML = 'txt.substring(9, 92) = ' + txt.substring(9, 92);
+      paragraphs[i++].innerHTML = 'txt.substring(92) = ' + txt.substring(92);
+      paragraphs[i++].innerHTML = 'txt.substring(txt.length - 24) = ' + txt.substring(txt.length - 24);
+
+      paragraphs[i++].innerHTML = 'txt.substr(9, 10) = ' + txt.substr(9, 10);
+      paragraphs[i++].innerHTML = 'txt.substr(9) = ' + txt.substr(9);
+      paragraphs[i++].innerHTML = 'txt.substr(-11) = ' + txt.substr(-11);
+      paragraphs[i++].innerHTML = 'txt.substr(-24, 8) = ' + txt.substr(-24, 8);
+
+      paragraphs[i++].innerHTML = 'txt.toUpperCase() = ' + txt.toUpperCase();
+      paragraphs[i++].innerHTML = 'txt.toLowerCase() = ' + txt.toLowerCase();
+
+      txt = '       Hello         World!        ';
+      paragraphs[i++].innerHTML = 'txt = ' + txt;
+      paragraphs[i++].innerHTML = 'txt.trim() = ' + txt.trim();
+      paragraphs[i++].innerHTML = 'txt.trimEnd() = ' + txt.trimEnd();
+      paragraphs[i++].innerHTML = 'txt.trimStart() = ' + txt.trimStart();
+
+      txt = 'JavaScript';
+      paragraphs[i++].innerHTML = 'txt.padStart(15, "*") = ' + txt.padStart(15, '*');
+      paragraphs[i++].innerHTML = 'txt.padEnd(15, "*") = ' + txt.padEnd(15, '*');
+      paragraphs[i++].innerHTML = 'txt.padStart(txt.length + 4, "*") = ' + txt.padStart(txt.length + 4, '*');
+
+      let price = 65431654;
+      paragraphs[i++].innerHTML = `price = ${price.toString().padStart(12, '0')}`;
+      paragraphs[i++].innerHTML = 'txt.charAt(3) = ' + txt.charAt(3) + ', txt.charAt(4) = ' + txt.charAt(4);
+      paragraphs[i++].innerHTML = 'txt.charCodeAt(3) = ' + txt.charCodeAt(3) + ', txt.charCodeAt(4) = ' + txt.charCodeAt(4);
+      paragraphs[i++].innerHTML = 'txt[3] = ' + txt[3];
+
+      txt = 'Saab*Volvo*BMW';
+      paragraphs[i++].innerHTML = 'txt = ' + txt;
+
+      let list = txt.split('*');
+      paragraphs[i].innerHTML = "txt.split('*') => <br>";
+      for (let item of list) paragraphs[i].innerHTML += item + '<br>';
+    </script>
+  </body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .key {
+        width: 50px;
+        height: 50px;
+        border: 1px solid;
+        text-align: center;
+        line-height: 50px;
+      }
+      .row {
+        display: flex;
+      }
+
+      .key-pressed {
+        background-color: darkkhaki;
+      }
+      .function-pressed {
+        background-color: rgb(107, 189, 152);
+      }
+      .function {
+        width: 100px;
+        height: 50px;
+        border: 1px solid;
+        text-align: center;
+        line-height: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="row">
+      <div class="function" data-function-code="ShiftLeft">Shift</div>
+      <div class="key" data-code="KeyA">a</div>
+      <div class="key" data-code="KeyB">b</div>
+      <div class="key" data-code="KeyC">c</div>
+      <div class="key" data-code="KeyD">d</div>
+      <div class="key" data-code="KeyE">e</div>
+      <div class="key" data-code="KeyF">f</div>
+      <div class="function" data-function-code="ShiftRight">Shift</div>
+    </div>
+
+    <div class="text">
+
+    </div>
+
+    <script>
+      const keys = document.getElementsByClassName('key');
+      const functionKeys = document.getElementsByClassName('function');
+      let text = ''
+
+      // console.log(keys);
+      document.onkeydown = function (e) {
+        console.log(e);
+        // console.log(e.key);
+        if (e.shiftKey) {
+          for (const functionKey of functionKeys) {
+            if (e.code === functionKey.dataset.functionCode) {
+              functionKey.classList.add('function-pressed');
+            }
+          }
+        }
+        
+        for (const key of keys) {
+          // console.log(key.dataset.code)
+          if ( e.code === key.dataset.code) {
+            key.classList.add('key-pressed');
+            text += e.key
+            document.querySelector('.text').innerHTML = text
+            
+          }
+        }
+
+        // if(!(e.shiftKey || e.ctrlKey || e.altKey)){
+          
+        // }
+      };
+
+      document.onkeyup = function (e) {
+        // for(const key of keys) {
+        //   if(key.dataset.code === e.code) {
+        //     key.classList.remove('key-pressed')
+        //   }
+        // }
+
+        // console.log(document.querySelector('.key-pressed'))
+        const keysPressed = document.querySelectorAll('.key-pressed');
+        for (const keyPressed of keysPressed) {
+          keyPressed.classList.remove('key-pressed');
+        }
+
+        // console.log(e.shiftKey)
+        if (!e.shiftKey) {
+          const functionKeysPressed = document.querySelectorAll('.function-pressed');
+          for (const functionKeyPressed of functionKeysPressed) {
+            functionKeyPressed.classList.remove('function-pressed');
+          }
+        }
+      };
+    </script>
+  </body>
+</html>

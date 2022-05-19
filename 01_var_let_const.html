@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="p1"></p>
+    <p id="p2"></p>
+    <p id="p3"></p>
+    <p id="p4"></p>
+    <p id="p5"></p>
+    <p id="p6"></p>
+    <p id="p7"></p>
+    <p id="p8"></p>
+    <p id="p9"></p>
+    <p id="p10"></p>
+    <p id="p11"></p>
+    <p id="p12"></p>
+    <p id="p13"></p>
+    <p id="p14"></p>
+    <p id="p15"></p>
+    <p id="p16"></p>
+    <p id="p17"></p>
+
+
+    <script>
+        var idNumber = 1;
+        var a = 10;
+
+        document.getElementById(`p${idNumber++}`).innerHTML = `a = ${a}`
+        
+        
+        /* Redeclared */
+        var a = 'title';
+
+        var b = a * 2;
+        document.getElementById(`p${idNumber++}`).innerHTML = `b = ${b}`
+
+        let c = 10;
+
+
+
+        /* Raise Error */
+        // let c = 'dffd';
+        // let a = '4545'
+
+
+        /********* Hoisted **********/
+
+        // document.getElementById(`p${idNumber++}`).innerHTML = `y = ${y}`
+        document.getElementById(`p${idNumber++}`).innerHTML = `x = ${x}`
+        x ='sdskd'
+        document.getElementById(`p${idNumber++}`).innerHTML = `x = ${x}`
+        
+        var x = 20;
+        document.getElementById(`p${idNumber++}`).innerHTML = `x = ${x}`
+        
+        let y = 20
+        document.getElementById(`p${idNumber++}`).innerHTML = `y = ${y}`
+
+        /****** scope ******/
+        if(true) {
+            var d = 10
+            let e = 10;
+            document.getElementById(`p${idNumber++}`).innerHTML = `in parent plock d = ${d}`;
+            document.getElementById(`p${idNumber++}`).innerHTML = `in parent plock e = ${e}`;
+            
+            let g = 2000
+            
+            if(true) {
+                var f = 20
+                let g = 20;
+                document.getElementById(`p${idNumber++}`).innerHTML = `in nested plock d = ${d}, f = ${f}`;
+                document.getElementById(`p${idNumber++}`).innerHTML = `in nested plock e = ${e}, g = ${g}`;
+                d = 30
+                e = 30
+            }
+            document.getElementById(`p${idNumber++}`).innerHTML = `in parent plock d = ${d}, f(nested) = ${f}`;
+            document.getElementById(`p${idNumber++}`).innerHTML = `in parent plock e = ${e}`;
+            document.getElementById(`p${idNumber++}`).innerHTML = `in parent plock g = ${g}`;
+        }
+        
+        
+        /******* const *******/
+        let radius = 2.253;
+        let area;
+
+        // let pi = 3.141592653589793;
+        const PI = 3.141592653589793;
+        
+
+        let pic = 'pic.png'
+
+
+        
+
+        pic = 'lskdsl.png'
+
+        area = radius ** 2 * PI;
+        document.getElementById(`p${idNumber++}`).innerHTML = `area = ${area}`
+        
+        
+        radius = 65
+        area = radius ** 2 * PI;
+        
+        // pi = 'skdhs.png'
+
+        let perimeter = radius * 2 * PI
+        document.getElementById(`p${idNumber++}`).innerHTML = `area = ${area}, perimeter = ${perimeter}`
+
+        const obj = {}
+        
+        // obj = 's'
+        obj.firstName = 'sdsd'
+
+        const arr = [];
+
+        arr.push(232)
+        arr[0] = 1254
+
+        const func = function(){
+            
+        }
+        
+
+    </script>
+</body>
+</html>

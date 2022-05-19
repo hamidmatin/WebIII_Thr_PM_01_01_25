@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+
+    <script>
+      const paragraphs = document.getElementsByTagName('p');
+      let i = 0;
+
+      let fruits = ['Banana', 'Orange', 'Apple', 'Mango'];
+      
+      paragraphs[i++].innerHTML = `fruits = ${fruits}`;
+      paragraphs[i++].innerHTML = `fruits = ${fruits.toString()}`;
+      paragraphs[i++].innerHTML = `fruits = ${fruits.join(' - ')}`; // toString() => join(',')
+
+      let f = fruits[fruits.length - 1];
+      paragraphs[i++].innerHTML = `last fruit = ${f} , fruits = ${fruits}`;
+
+      f = fruits.pop();
+      paragraphs[i++].innerHTML = `last fruit = ${f} , fruits = ${fruits}`;
+
+      f = 'kiwi';
+      fruits.push(f);
+      paragraphs[i++].innerHTML = `new fruit = ${f} , fruits = ${fruits}`;
+
+      f = fruits.shift();
+      paragraphs[i++].innerHTML =  `first fruit = ${f} , fruits = ${fruits}`;
+
+      f = 'Lemon';
+      fruits.unshift(f);
+      paragraphs[i++].innerHTML =  `new fruit = ${f} , fruits = ${fruits}`;
+
+      // array.splice(startIndex, deleteCount, [insertItem, insertItem, ....])
+
+      // remove item
+      let deleted = fruits.splice(1, 2);
+      paragraphs[i++].innerHTML = `deleted fruits = (${deleted}), fruits = ${fruits}`
+
+      // insert item
+      fruits.splice(1, 0, 'aaaaaaaa', 'bbbbbbb');
+      paragraphs[i++].innerHTML = `fruits = ${fruits}`
+
+      // delete & insert item
+      deleted = fruits.splice(1, 2, 'ccccc', 'dddddd', 'eeeee');
+      paragraphs[i++].innerHTML = `deleted fruits = (${deleted}), fruits = ${fruits}`
+    </script>
+  </body>
+</html>

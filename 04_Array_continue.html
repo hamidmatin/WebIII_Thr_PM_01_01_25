@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <script>
+    let paragraphs = document.getElementsByTagName('p')
+    let i = 0;
+
+    let cars = ['Volvo', 'BMW']
+
+    paragraphs[i++].innerHTML = 'cars.length = ' + cars.length + ', cars = ' + cars
+
+    // Add New Item
+    cars[2] = 'Benz'
+    paragraphs[i++].innerHTML = 'cars.length = ' + cars.length + ', cars = ' + cars
+
+    cars[5] = 'Pride'
+    paragraphs[i++].innerHTML = 'cars.length = ' + cars.length + ', cars = ' + cars
+
+    paragraphs[i++].innerHTML = 'cars[4] = ' + cars[4]
+  </script>
+</body>
+</html>
