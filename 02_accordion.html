@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .accordion {
+        width: 350px;
+        border: 1px solid gray;
+        transition: all 0.3s;
+      }
+      .accordion > .title {
+        background-color: #eee;
+        color: black;
+        font-weight: 900;
+        text-align: start;
+        margin: 0;
+        padding: 1em;
+        cursor: pointer;
+        transition: inherit;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .accordion > .title::after {
+        content: '\02795';
+        font-size: 10px;
+        color: #777;
+      }
+
+      .accordion > .title:hover,
+      .accordion > .title.active {
+        background-color: #ccc;
+      }
+
+      .accordion > .title.active::after {
+        content: '\2796';
+      }
+      .accordion > .content {
+        padding: 0.5em;
+      }
+
+      .accordion > .title:not(.active) + .content {
+        display: none;
+      }
+      
+      .image-fluid {
+        display: block;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="accordion">
+      <h3 class="title active">Title 1</h3>
+      <div class="content">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ad repudiandae iste odit
+          modi possimus veritatis, dolor consectetur eligendi officiis nostrum, a facere mollitia.
+          Soluta maiores voluptates veritatis excepturi ratione.
+        </p>
+      </div>
+      <h3 class="title">Title 2</h3>
+      <div class="content">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ad repudiandae iste odit
+          modi possimus veritatis, dolor consectetur eligendi officiis nostrum, a facere mollitia.
+          Soluta maiores voluptates veritatis excepturi ratione.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ad repudiandae iste odit
+          modi possimus veritatis, dolor consectetur eligendi officiis nostrum, a facere mollitia.
+          Soluta maiores voluptates veritatis excepturi ratione.
+        </p>
+      </div>
+      <h3 class="title">Title 3</h3>
+      <div class="content">
+        <img src="images/54-1024x575.webp" alt="" class="image-fluid" />
+      </div>
+      <h3 class="title">Title 4</h3>
+      <div class="content">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ad repudiandae iste odit
+          modi possimus veritatis, dolor consectetur eligendi officiis nostrum, a facere mollitia.
+          Soluta maiores voluptates veritatis excepturi ratione.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ad repudiandae iste odit
+          modi possimus veritatis, dolor consectetur eligendi officiis nostrum, a facere mollitia.
+          Soluta maiores voluptates veritatis excepturi ratione.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ad repudiandae iste odit
+          modi possimus veritatis, dolor consectetur eligendi officiis nostrum, a facere mollitia.
+          Soluta maiores voluptates veritatis excepturi ratione.
+        </p>
+      </div>
+      <h3 class="title">Title 5</h3>
+      <div class="content">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ad repudiandae iste odit
+          modi possimus veritatis, dolor consectetur eligendi officiis nostrum, a facere mollitia.
+          Soluta maiores voluptates veritatis excepturi ratione.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ad repudiandae iste odit
+          modi possimus veritatis, dolor consectetur eligendi officiis nostrum, a facere mollitia.
+          Soluta maiores voluptates veritatis excepturi ratione.
+        </p>
+      </div>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div class="accordion">
+      <h3 class="title active">Title 1</h3>
+      <div class="content">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ad repudiandae iste odit
+          modi possimus veritatis, dolor consectetur eligendi officiis nostrum, a facere mollitia.
+          Soluta maiores voluptates veritatis excepturi ratione.
+        </p>
+      </div>
+      <h3 class="title">Title 2</h3>
+      <div class="content">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ad repudiandae iste odit
+          modi possimus veritatis, dolor consectetur eligendi officiis nostrum, a facere mollitia.
+          Soluta maiores voluptates veritatis excepturi ratione.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ad repudiandae iste odit
+          modi possimus veritatis, dolor consectetur eligendi officiis nostrum, a facere mollitia.
+          Soluta maiores voluptates veritatis excepturi ratione.
+        </p>
+      </div>
+      
+      <h3 class="title">Title 4</h3>
+      <div class="content">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ad repudiandae iste odit
+          modi possimus veritatis, dolor consectetur eligendi officiis nostrum, a facere mollitia.
+          Soluta maiores voluptates veritatis excepturi ratione.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ad repudiandae iste odit
+          modi possimus veritatis, dolor consectetur eligendi officiis nostrum, a facere mollitia.
+          Soluta maiores voluptates veritatis excepturi ratione.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ad repudiandae iste odit
+          modi possimus veritatis, dolor consectetur eligendi officiis nostrum, a facere mollitia.
+          Soluta maiores voluptates veritatis excepturi ratione.
+        </p>
+      </div>
+      <h3 class="title">Title 5</h3>
+      <div class="content">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ad repudiandae iste odit
+          modi possimus veritatis, dolor consectetur eligendi officiis nostrum, a facere mollitia.
+          Soluta maiores voluptates veritatis excepturi ratione.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ad repudiandae iste odit
+          modi possimus veritatis, dolor consectetur eligendi officiis nostrum, a facere mollitia.
+          Soluta maiores voluptates veritatis excepturi ratione.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      const accordions = document.querySelectorAll('.accordion')
+      
+      for (const accordion of accordions) {
+        const accordionTitles = accordion.querySelectorAll('.title')
+        for (const accordionTitle of accordionTitles) {
+          // console.log(accordionTitle)
+          accordionTitle.onclick = function(){
+            this.classList.toggle('active')
+          }
+        }
+      }     
+    </script>
+  </body>
+</html>

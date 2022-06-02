@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #div1 {
+        width: 150px;
+        height: 150px;
+        background-color: red;
+        margin-top: 50px;
+
+        position: relative;
+        left: 0;
+        top: 0;
+      }
+      .bg-green {
+        background-color: green !important;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="btn1">Start Animation</button>
+    <button id="btn2">Start Animation 2</button>
+    <button id="btn3">Start Animation 2</button>
+
+    <div id="div1" class="bg-green"></div>
+
+    <script>
+      const div = document.getElementById('div1');
+      document.getElementById('btn1').onclick = function() {
+        // console.log(div.style.backgroundColor)
+        /**
+         * getComputedStyle(elt: Element, pseudoElt?: string): CSSStyleDeclaration
+        */
+      //  console.log(getComputedStyle(div))
+      //  console.log(getComputedStyle(div).backgroundColor)
+      //  console.log(getComputedStyle(div).left)
+
+        let left = parseFloat(getComputedStyle(div).left);
+        div.style.left = left + 1 + 'px'
+      }
+
+      document.getElementById('btn2').onclick = function () {
+        div.style.left = 0;
+        
+        const anim1 = setInterval(function () {
+          let left = parseFloat(getComputedStyle(div).left);
+          div.style.left = left + 20 + 'px';
+
+          if (left >= 500) clearInterval(anim1);
+        }, 10);
+      };
+
+      document.getElementById('btn3').onclick = function () {
+        let startLeft = 600;
+        let endLeft = 300;
+        let duration = 5000;
+        /* animation */
+        const pace = 10;
+        let frameCount = duration / pace;
+        let stepChange = (endLeft - startLeft) / frameCount;
+
+        div.style.left = startLeft + 'px';
+        const anim1 = setInterval(function () {
+          let left = parseFloat(getComputedStyle(div).left);
+          div.style.left = left + stepChange + 'px';
+          if (stepChange > 0) {
+            if (left >= endLeft) clearInterval(anim1);
+          } else {
+            if (left <= endLeft) clearInterval(anim1);
+          }
+        }, pace);
+      };
+    </script>
+  </body>
+</html>
