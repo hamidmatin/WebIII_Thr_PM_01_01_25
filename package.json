@@ -1,0 +1,25 @@
+{
+  "name": "webiii_thr_pm_01_01_25",
+  "version": "1.0.0",
+  "description": "مدرس دوره های برنامه نویسی سی شارپ و فرانت اند",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hamidmatin/WebIII_Thr_PM_01_01_25.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hamidmatin/WebIII_Thr_PM_01_01_25/issues"
+  },
+  "homepage": "https://github.com/hamidmatin/WebIII_Thr_PM_01_01_25#readme",
+  "dependencies": {
+    "jquery": "^3.6.0"
+  }
+}
