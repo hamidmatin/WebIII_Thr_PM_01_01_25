@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #p1 {
+        background-color: rgb(166, 248, 187);
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="btn1">Get Text</button>
+    <button id="btn2">Get HTML</button>
+    <button id="btn3">Get Value</button>
+
+    <button id="btn4">Get CSS</button>
+    <button id="btn5">Get Attribute</button>
+    <button id="btn6">Get Data</button>
+    <hr />
+
+    <button id="btn7">Set Text</button>
+    <button id="btn8">Set HTML</button>
+    <button id="btn9">Set Value</button>
+
+    <button id="btn10">Set CSS</button>
+    <button id="btn11">Set Attribute</button>
+    <button id="btn12">Set Data</button>
+    <br />
+
+    <p id="p1" style="color: green" title="Sample tag for jQuery DOM Manipulation">
+      This is some <b>bold</b> text in a paragraph.
+    </p>
+    <input type="password" value="Sample Value" id="inp1" data-type="text" />
+    <br />
+    <label>Show Password <input type="checkbox" id="inp2" /></label>
+    <button id="show-pass">eye</button>
+    
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script>
+      $(function () {
+        $(function () {
+          /******   Get  ******/
+          $('#btn1').click(function () {
+            let text = $('#p1').text(); // => innerText
+            alert(text);
+          });
+
+          $('#btn2').click(function () {
+            let text = $('#p1').html(); // => innerHTML
+            alert(text);
+          });
+
+          $('#btn3').click(function () {
+            let text = $('#inp1').val();
+            alert(text);
+          });
+
+          $('#btn4').click(function () {
+            let text = 'font-size = ' + $('#p1').css('font-size'); // getComputedStyle(element).fontSize
+            text += '\ncolor = ' + $('#p1').css('color');
+            text += '\nheight = ' + $('#p1').css('height');
+            alert(text);
+          });
+
+          $('#btn5').click(function () {
+            let text = 'title = ' + $('#p1').attr('title');
+            text += '\nstyle = ' + $('#p1').attr('style');
+            text += '\n#inp1 type = ' + $('#inp1').attr('type');
+            text += '\n#inp1 data-type = ' + $('#inp1').attr('data-type');
+            alert(text);
+          });
+
+          $('#btn6').click(function () {
+            let text = $('#inp1').data('type');
+            alert(text);
+          });
+
+          /*****   Set   ******/
+          $('#btn7').click(function () {
+            let text = '<b>Hello world!</b>';
+            $('#p1').text(text);
+          });
+
+          $('#btn8').click(function () {
+            let text = '<b>Hello world!</b>';
+            $('#p1').html(text);
+          });
+
+          $('#btn9').click(function () {
+            let text = '<b>Hello world!</b>';
+            $('#inp1').val(text);
+          });
+
+          $('#btn10').click(function () {
+            // $('#p1').css('font-size', '40px'); // => document.getElementById().style.fontSize = '40px'
+            // $('#p1').css('background-color' , 'yellow !important'); // not working
+            // $('#p1').css('cssText', 'background-color : yellow !important; font-size: 40px');
+
+            // $('#p1').css('font-size', '40px')
+            //         .css('background-color', 'yellow');
+
+            $('#p1').css({
+              'font-size': '40px',
+              'background-color': 'yellow ',
+              'border-bottom': '2px solid green',
+              'padding': '8px',
+              'border-radius': '6px'
+            });
+          });
+
+          $('#btn11').click(function () {
+            let type = $('#inp1').data('type');
+            $('#inp1').attr('type', type);
+          });
+          $('#btn12').click(function () {
+            $('#inp1').data('type', 'radio');
+          });
+
+          /************** Sample *****************/
+          $('#inp2').change(function () {
+            console.log(this);
+            console.log($(this));
+
+            /*
+              .is(selector) => bool
+            */
+
+            if ($(this).is(':checked')) {
+              $('#inp1').attr('type', 'text');
+            } else {
+              $('#inp1').attr('type', 'password');
+            }
+          });
+          // $('#show-pass').mousedown(function (evt) {
+          //   if (evt.button === 0) {
+          //     $('#inp1').attr('type', 'text');
+          //   }
+          // });
+          // $('#show-pass').mouseup(function (evt) {
+          //   if (evt.button === 0) {
+          //     $('#inp1').attr('type', 'password');
+          //   }
+          // });
+          // $('#show-pass').mouseleave(function (evt) {
+          //   $('#inp1').attr('type', 'password');
+          // });
+
+          $('#show-pass').on({
+            mousedown: function(evt){
+              if (evt.button === 0) {
+                $('#inp1').attr('type', 'text');
+              }
+            },
+            mouseup: function(evt){
+              if (evt.button === 0) {
+                $('#inp1').attr('type', 'password');
+              }
+            },
+            mouseleave: function(evt){
+              if (evt.button === 0) {
+                $('#inp1').attr('type', 'password');
+              }
+            },
+          })
+        });
+      });
+    </script>
+  </body>
+</html>
