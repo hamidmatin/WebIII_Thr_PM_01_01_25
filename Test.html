@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .active {
+        background-color: bisque;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="category-wrapper"></div>
+
+    <input type="text" name="search" id="search">
+    <script>
+      let products = [];
+      let filteredProducts = [];
+
+      fetch('/data/chocolate.json')
+        .then(function (res) {
+          return res.json();
+        })
+        .then(function (result) {
+          products = result;
+        });
+
+      fetch('/data/category.json')
+        .then(function (res) {
+          return res.json();
+        })
+        .then(function (categories) {
+          console.log(categories);
+          createCategoryButtons(categories);
+
+          document.querySelector('.category-button').click()
+        });
+
+      const createCategoryButtons = function (categories) {
+        const categoryWrapper = document.querySelector('.category-wrapper');
+
+        for (const category of categories) {
+          const categoryButton = document.createElement('button');
+          categoryButton.innerText = category.name;
+          categoryButton.classList.add('category-button');
+          categoryButton.onclick = categoryButtonClickHandler.bind(categoryButton, category.id);
+          categoryWrapper.append(categoryButton);
+        }
+      };
+
+      const categoryButtonClickHandler = function (id) {
+        const categoryButtons = document.querySelectorAll('.category-button');
+
+        for (const categoryButton of categoryButtons) {
+          categoryButton.classList.remove('active');
+        }
+
+        this.classList.add('active');
+
+        if (id === -1) {
+          filteredProducts = products;
+        } else {
+          filteredProducts = products.filter(function (product) {
+            return product.categoryId === id;
+          });
+        }
+
+        console.log(filteredProducts);
+      };
+
+
+      document.getElementById('search').onkeyup = function(e){
+        // console.log(e.target.value)
+        // console.log(this.value)
+        
+        const serachValue = this.value
+
+        const findedProduct = filteredProducts.filter(function(p){
+            // console.log(p.name)
+            // console.log(p.name.indexOf(serachValue))
+            return p.name.indexOf(serachValue) !== -1
+            // return p.name.includes(serachValue)
+        })
+
+        console.log(findedProduct)
+      }
+    </script>
+  </body>
+</html>

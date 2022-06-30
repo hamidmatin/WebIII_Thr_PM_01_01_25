@@ -1,0 +1,73 @@
+[
+    {
+      "id": 1,
+      "name": "شیرین عسل",      
+      "image": "/images/dd.png",
+      "categoryId":1, 
+      "price": 12000  
+    },
+    {
+      "id": 2,
+      "name": "نوتلا",      
+      "image": "/images/nutella.png",
+      "categoryId":2,
+      "price": 16000      
+    },
+    {
+      "id": 3,
+      "name": "آیدین",      
+      "image": "/images/1603231372-41KQp5xfFQL_adobespark.png",
+      "categoryId":1,
+      "price": 10000     
+    },
+    {
+      "id": 4,
+      "name": "قافلانکوه",      
+      "image": "/images/chocholatee.jpg",
+      "categoryId":1 ,
+      "price": 9000    
+    },
+    {
+      "id": 5,
+      "name": "شونیز",      
+      "image": "/images/latest-products.png",
+      "categoryId":1 ,
+      "price": 4000   
+    },
+    {
+      "id": 6,
+      "name": "اسنیکرز",      
+      "image": "/images/111111.png",
+      "categoryId":2,   
+      "price": 3000  
+    },
+    {
+      "id": 7,
+      "name": "نستله",      
+      "image": "/images/nestle.png",
+      "categoryId":2,
+      "price": 5000   
+    },
+    {
+      "id": 8,
+      "name": "مرداس",      
+      "image": "/images/product-711969-t-1575221546-o.png",
+      "categoryId":1,  
+      "price": 20000 
+    },
+    {
+      "id": 9,
+      "name": "مرسی",      
+      "image": "/images/F090001874.png",
+      "categoryId":2 , 
+      "price":7000   
+    },
+    {
+      "id": 10,
+      "name": "mars",      
+      "image": "/images/kit kat.png",
+      "categoryId":2  , 
+      "price": 2000  
+    }
+    
+  ]
